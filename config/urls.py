@@ -21,10 +21,9 @@ urlpatterns = [
     #app
     url(r'^api/v1/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/accounts/', include('rest_auth.urls')),
-    url(r'^api/accounts/registration/', include('rest_auth.registration.urls')) #registration endpoint
+    url(r'^api/accounts/registration/', include('rest_auth.registration.urls')), #registration endpoint
     url(r'^api-token-auth/', obtain_jwt_token),
-
-    # deven custom urls
+                  # deven custom urls
 
 
 
