@@ -5,7 +5,8 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.generic import TemplateView
+from rest_framework_jwt.views import obtain_jwt_token
+
 from django.views import defaults as default_views
 
 urlpatterns = [
@@ -21,6 +22,7 @@ urlpatterns = [
     url(r'^api/v1/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/accounts/', include('rest_auth.urls')),
     url(r'^api/accounts/registration/', include('rest_auth.registration.urls')) #registration endpoint
+    url(r'^api-token-auth/', obtain_jwt_token),
 
     # deven custom urls
 
