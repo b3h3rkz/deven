@@ -13,6 +13,7 @@ urlpatterns = [
         name='list'
     ),
 
+
     # URL pattern for the UserRedirectView
     url(
         regex=r'^~redirect/$',

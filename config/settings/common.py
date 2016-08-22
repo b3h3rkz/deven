@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    # 'allauth.socialaccount.providers.facebook',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
@@ -51,6 +52,8 @@ LOCAL_APPS = (
 
 )
 
+
+SITE_ID = 1
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
