@@ -29,11 +29,13 @@ urlpatterns = [
     url(r'^api-token-auth/', obtain_jwt_token),
 
 
-    # deven custom urls
-
-
+    # deven local app urls
+    url(r'^api/v1/tags/', include('tag.urls', namespace='tags')),
+    url(r'^api/v1/links/', include('links.urls', namespace='links')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

@@ -35,3 +35,23 @@ urlpatterns = [
         name='update'
     ),
 ]
+
+
+"""
+TAGS
+
+A tag is unique
+a tag can be added by anyone
+
+
+"""
+
+"""
+A resource is added is by a user
+The resource must be added to  one or more tags
+When the resource is uploaded, a crawler will visit the link and get a description of the resource
+A resource can be voted up or down
+
+A resource can be flagged as harmful
+
+"""
