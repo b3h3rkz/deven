@@ -290,3 +290,5 @@ CORS_ALLOW_HEADERS = (
     'authorization',
     'x-csrftoken'
 )
+
+CSRF_TRUSTED_ORIGINS = ['*']
