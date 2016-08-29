@@ -4,7 +4,7 @@ from tag.models import Tag
 from django.conf import settings
 import urllib.request
 from urllib.parse import urlparse
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 
 
 class LinkVoteCountManager(models.Manager):
@@ -24,13 +24,13 @@ class Link(models.Model):
 
     def __str__(self):
         return self.title
-
-    def desc(self):
-        link = self.link
-        page = urllib.request.urlopen(link)
-        soup = BeautifulSoup(page)
-        desci = soup.find_all(attrs={'name':"description"})
-        return desci
+    #
+    # def desc(self):
+    #     link = self.link
+    #     page = urllib.request.urlopen(link)
+    #     soup = BeautifulSoup(page)
+    #     desci = soup.find_all(attrs={'name':"description"})
+    #     return desci
 
 
 class Vote(models.Model):
