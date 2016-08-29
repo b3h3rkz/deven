@@ -38,7 +38,7 @@ class Vote(models.Model):
     link = models.ForeignKey(Link)
 
     def __str__(self):
-        return "%s upvoted %s" % (self.voter.username, self.link.title)
+        return self.voter.username, self.link.title
 
 
 
