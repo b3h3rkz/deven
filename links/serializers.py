@@ -3,17 +3,17 @@ from rest_framework.serializers import ( HyperlinkedIdentityField,
                                          ModelSerializer,
                                          CurrentUserDefault,)
 from django.contrib.auth.models import User
-from .models import Link
+from .models import Link, Vote
 from tag.models import Tag
 
 
 class AddLinkModelSerializer(ModelSerializer):
-        user = HiddenField(default=CurrentUserDefault)
+        poster = HiddenField(default=CurrentUserDefault)
         tags = Tag.objects.all()
 
         class Meta:
             model = Link
-            fields = ['title', 'link', 'user', 'tags']
+            fields = ['title', 'link', 'poster', 'tags']
 
 
 class LinkListModelSerializer(ModelSerializer):
@@ -21,7 +21,15 @@ class LinkListModelSerializer(ModelSerializer):
 
     class Meta:
         model = Link
-        fields = ['id', 'title', 'link', 'description', 'upvotes', 'voted', 'tags']
+        fields = ['id', 'title', 'link', 'description', 'poster', 'tags', 'with_votes']
+
+
+class UserVotesSerializer(ModelSerializer):
+    class Meta:
+        model = Vote
+        fields = ['voter', 'link']
+
+
 
 
 

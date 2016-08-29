@@ -12,7 +12,9 @@ from rest_auth.registration.views import SocialLoginView
 
 from allauth.socialaccount.providers.twitter.views import TwitterOAuthAdapter
 from rest_auth.views import LoginView
+from rest_framework.generics import RetrieveAPIView
 from rest_auth.social_serializers import TwitterLoginSerializer
+from .serializers import UserInfo
 
 
 class TwitterLogin(LoginView):
@@ -60,3 +62,10 @@ class UserListView(LoginRequiredMixin, ListView):
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
     slug_url_kwarg = 'username'
+
+class UserApiDetailView(RetrieveAPIView):
+    model = User
+    serializer_class = UserInfo
+
+    def get_queryset(self):
+        return User.objects.filter(username=self.request.user.username)
