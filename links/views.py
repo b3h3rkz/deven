@@ -15,7 +15,6 @@ class LinksListAPIView(ListAPIView):
 class AddLinkAPIView(CreateAPIView):
     model = Link
     serializer_class = AddLinkModelSerializer
-    queryset = Link.objects.all()
     permission_classes = (IsAuthenticated,)
 
 
